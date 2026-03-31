@@ -19,34 +19,54 @@ limitations under the License.
 
 namespace ocl
 {
+    /**
+     * @class RemoteValue
+     * @brief Represents a scalar value argument to be passed to an OpenCL kernel. It is used for passing simple data types (e.g., int, float, etc.) as kernel arguments.
+     * The value is stored on the host and passed by value to the kernel when binding the argument.
+     */
 	template<typename T>
     class RemoteValue : public Argument
     {
         public:
+	        /**
+             * @brief Constructor. Creates a RemoteValue argument with the specified value.
+             * @tparam T The type of the scalar value (e.g., int, float, etc.).
+             * @param value The scalar value to be passed to the kernel.
+             */
             explicit RemoteValue<T>(const T& value)
             {
                 _value = value;
             }
 
-            virtual ~RemoteValue()
-            {
-            }
-
+            /**
+             * @brief Get the size of the RemoteValue argument in bytes. This is the size of the underlying type T.
+             * @return The size of the RemoteValue argument in bytes.
+             */
             virtual uint32_t size() const override
             {
                 return sizeof(_value);
             }
 
-            RemoteValue<T>(const RemoteValue<T>& other)
-            {
-                _value = other._value;
-            }
-
+            /**
+             * @brief Get the value of the RemoteValue argument.
+             * @return The scalar value stored in the RemoteValue argument.
+             */
             T value() const
             {
                 return _value;
             }
 
+            /**
+             * Copy constructor
+             */
+            RemoteValue<T>(const RemoteValue<T>& other)
+            {
+                _value = other._value;
+            }
+
+            /**
+             * Copy assignment operator
+             */
             RemoteValue<T>& operator=(const RemoteValue<T>& other)
             {
                 if(this != &other)

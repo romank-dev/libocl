@@ -119,7 +119,7 @@ TEST(LibOcl, TestRGBAtoRGB_OpenCvVsOpenCL)
     {
         task.execute(rgba, rgb);
     }
-    task.wait();
+    runtime.wait_for_task_completion();
     rgb.retrieve(out2);
     printf("OpenCL took %lu us\n", t.get_us()/number_of_runs);
 

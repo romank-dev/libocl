@@ -88,8 +88,3 @@ void OpenCVMat::write_opencvcv_mat(const Mat& image)
     CL_CHECK_RET(clEnqueueWriteBuffer(_runtime._command_queue, _buffer, CL_TRUE, 0, size(), image.data, 0, NULL, NULL));
 }
 
-
-OpenCVMat::~OpenCVMat()
-{
-
-}

@@ -51,7 +51,7 @@ void Task::run_inner()
             _global_work_size, _local_work_size[0] == 0 ? nullptr : _local_work_size, 0, nullptr, nullptr));
 
 	    if(_blocking)
-            wait();
+            _runtime.wait_for_task_completion();
 	}
 	catch(const Exception& e)
 	{
@@ -94,8 +94,4 @@ Runtime& Task::runtime()
     return _runtime;
 }
 
-void Task::wait()
-{
-	CL_CHECK_RET(clFlush(_runtime._command_queue));
-	CL_CHECK_RET(clFinish(_runtime._command_queue));
-}
+

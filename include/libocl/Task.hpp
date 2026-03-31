@@ -35,16 +35,60 @@ namespace ocl
 	 * Represents the execution of a kernel.
 	 * Designed with the builder pattern.
 	 */
+
+    /**
+     * @class Task
+     * @brief Represents the execution of a kernel.
+     * It is designed with the builder pattern, allowing you to set various parameters for the kernel execution,
+     * such as global and local work sizes, and then execute the kernel with the specified arguments.
+     */
 	class Task final : public NonCopyable
 	{
 		public:
 
+	        /**
+             * @brief Constructor. Creates a Task for the specified Runtime and Kernel. The Task is associated with the Runtime's Device and the specified Kernel.
+             * @param runtime The Runtime context in which the kernel will be executed.
+             * @param kernel The Kernel to be executed.
+             */
 			Task(const Runtime& runtime, const Kernel& kernel);
 
+			/**
+			 * @brief Set the global work size for the kernel execution. This specifies the total number of work-items that will execute the kernel.
+			 * @param x The global work size in the X dimension.
+			 * @param y The global work size in the Y dimension (default is 0, which means it will be ignored).
+			 * @param z The global work size in the Z dimension (default is 0, which means it will be ignored).
+			 */
 			Task& set_global_work_size(uint x, uint y=0, uint z=0);
+
+			/**
+             * @brief Set the global work offset for the kernel execution. This specifies the offset for the global IDs of the work-items.
+             * @param x The global work offset in the X dimension.
+             * @param y The global work offset in the Y dimension (default is 0, which means it will be ignored).
+             * @param z The global work offset in the Z dimension (default is 0, which means it will be ignored).
+             */
 			Task& set_global_work_offset(uint x, uint y=0, uint z=0);
+
+			/**
+             * @brief Set the local work size for the kernel execution. This specifies the number of work-items in each work-group.
+             * @param x The local work size in the X dimension.
+             * @param y The local work size in the Y dimension (default is 0, which means it will be ignored).
+             * @param z The local work size in the Z dimension (default is 0, which means it will be ignored).
+             */
 			Task& set_local_work_size(uint x, uint y=0, uint z=0);
-			Task& set_blocking(bool);
+
+			/**
+             * @brief Set whether the kernel execution should be blocking or non-blocking. If set to true, the execute() method will block until the kernel execution is complete.
+             * If set to false, the execute() method will return immediately and the kernel execution will happen asynchronously.
+             * @param blocking A boolean value indicating whether the kernel execution should be blocking (true) or non-blocking (false).
+             * @return A reference to the Task object, allowing for method chaining.
+             */
+			Task& set_blocking(bool blocking);
+
+			/**
+			 * @brief returns a reference to the Runtime associated with this Task.
+			 * @return A reference to the Runtime object associated with this Task.
+			 */
 			Runtime& runtime();
 
 			/*
@@ -63,7 +107,6 @@ namespace ocl
 			// generates signatures void execute(const RemoteArg& arg0 ...)
 			SIGNATURES(10);
 
-			void wait();
 
 		private:
 

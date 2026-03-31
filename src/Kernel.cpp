@@ -133,15 +133,10 @@ void Kernel::print_info() const
     size_t wg[3];
     size_t size_ret;
     CL_CHECK_RET(clGetKernelWorkGroupInfo(_kernel, NULL, CL_KERNEL_WORK_GROUP_SIZE, sizeof(wg_size), &wg_size, &size_ret));
-    printf("size_ret: %lu\n", size_ret);
     CL_CHECK_RET(clGetKernelWorkGroupInfo(_kernel, NULL, CL_KERNEL_COMPILE_WORK_GROUP_SIZE, sizeof(wg), wg, &size_ret));
-    printf("size_ret: %lu\n", size_ret);
     CL_CHECK_RET(clGetKernelWorkGroupInfo(_kernel, NULL, CL_KERNEL_LOCAL_MEM_SIZE, sizeof(local_mem), &local_mem, &size_ret));
-    printf("size_ret: %lu\n", size_ret);
     CL_CHECK_RET(clGetKernelWorkGroupInfo(_kernel, NULL, CL_KERNEL_PREFERRED_WORK_GROUP_SIZE_MULTIPLE, sizeof(wg_size_multiple), &wg_size_multiple, &size_ret));
-    printf("size_ret: %lu\n", size_ret);
     CL_CHECK_RET(clGetKernelWorkGroupInfo(_kernel, NULL, CL_KERNEL_PRIVATE_MEM_SIZE, sizeof(private_mem), &private_mem, &size_ret));
-    printf("size_ret: %lu\n", size_ret);
 
     printf("Workgroup size: %lu (%lux%lux%lu)\nWorkgroup size multiple: %lu\nLocal memory: %lu\nPrivate memory: %lu\n", wg_size, wg[0],wg[1],wg[2], wg_size_multiple, local_mem, private_mem);
 }

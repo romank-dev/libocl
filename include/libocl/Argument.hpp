@@ -21,10 +21,20 @@ limitations under the License.
 
 namespace ocl
 {
+    /**
+     * @class Argument
+     * @brief This class represents an argument to be passed to an OpenCL kernel.
+     * It is an abstract base class that defines the interface for all types of arguments, such as buffers, images, and scalar values.
+     */
     class Argument
     {
         public:
 
+            /**
+             * @brief The size of the argument in bytes. For scalar types, this is the size of the type.
+             * For buffer and image types, this is the size of the data they represent.
+             * @return The size of the argument in bytes.
+             */
             virtual uint32_t size() const = 0;
 
         protected:

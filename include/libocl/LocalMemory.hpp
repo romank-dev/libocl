@@ -19,15 +19,32 @@ limitations under the License.
 
 namespace ocl
 {
+    /**
+     * @class LocalMemory
+     * @brief Represents a local memory argument for an OpenCL kernel. It is used to specify the size of the local memory to be allocated for a kernel argument.
+     */
 	class LocalMemory : public Argument
     {
         public:
+	        /**
+             * @brief Constructor. Creates a LocalMemory argument with the specified size.
+             * @param size The size of the local memory to be allocated for the kernel argument, in bytes.
+             */
             explicit LocalMemory(uint size);
-            virtual ~LocalMemory() = default;
 
+            /**
+             * @brief Get the size of the local memory argument in bytes.
+             * @return The size of the local memory argument in bytes.
+             */
             virtual uint32_t size() const override;
 
+            /**
+             * Copy constructor
+             */
             LocalMemory(const LocalMemory& other);
+            /**
+             * Copy assignment operator
+             */
             LocalMemory& operator=(const LocalMemory& other);
 
         private:

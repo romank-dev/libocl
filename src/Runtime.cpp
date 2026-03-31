@@ -64,7 +64,11 @@ const Device& Runtime::device() const
 	return _device;
 }
 
-
+void Runtime::wait_for_task_completion()
+{
+    CL_CHECK_RET(clFlush(_command_queue));
+    CL_CHECK_RET(clFinish(_command_queue));
+}
 
 
 
