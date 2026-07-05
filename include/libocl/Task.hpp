@@ -31,11 +31,6 @@ limitations under the License.
 
 namespace ocl
 {
-	/**
-	 * Represents the execution of a kernel.
-	 * Designed with the builder pattern.
-	 */
-
     /**
      * @class Task
      * @brief Represents the execution of a kernel.
@@ -92,10 +87,10 @@ namespace ocl
 			Runtime& runtime();
 
 			/*
-			template <const RemoteArg&... args>
+			template <const Argument&... args>
 			void execute()
 			{
-				std::vector<const RemoteArg&> arg_list = { args... };
+				std::vector<const Argument&> arg_list = { args... };
 
 				for(int i = 0; i < arg_list.size(); ++i)
 				{
@@ -104,7 +99,12 @@ namespace ocl
 			}
 			*/
 
-			// generates signatures void execute(const RemoteArg& arg0 ...)
+			/**
+			 *  generates signatures void execute(const Argument& arg0 ...)
+			 *  @param arg0, arg1, ..., arg9 are the arguments to be passed to the kernel. The number of arguments can be up to 10.
+			 *  They must be of type const Argument&.
+			 *  The execute() method will bind these arguments to the kernel and then run the kernel with the specified work sizes and offsets.
+			 */
 			SIGNATURES(10);
 
 

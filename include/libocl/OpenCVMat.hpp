@@ -21,10 +21,6 @@ limitations under the License.
 
 namespace ocl
 {
-	/**
-	 * Represents an openCV Mat object in raw form, hence inherits RemoteBuffer.
-	 * Within a kernel it will appear as a __global array, and accessed like normal memory.
-	 */
     /**
      * @class OpenCVMat
      * @brief This class represents an OpenCV Mat object in raw form, hence inherits GlobalMemory.
@@ -100,8 +96,6 @@ namespace ocl
             int         _cv_type;
             cv::Size    _cv_size;
     };
-
-    typedef std::shared_ptr<OpenCVMat> RemoteMatPtr;
 
 }
 

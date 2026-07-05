@@ -82,8 +82,8 @@ void OpenCVMat::retrieve(Mat& image) const
 
 void OpenCVMat::write_opencvcv_mat(const Mat& image)
 {
-    CHECK_THROW(image.type() == _cv_type, "RemoteOpenCVMat::write_OpenCVMat requires the same image type");
-    CHECK_THROW(image.size() == _cv_size, "RemoteOpenCVMat::write_OpenCVMat requires the same image size");
+    CHECK_THROW(image.type() == _cv_type, "OpenCVMat::write_opencvcv_mat requires matching image type");
+    CHECK_THROW(image.size() == _cv_size, "OpenCVMat::write_opencvcv_mat requires matching image size");
 
     CL_CHECK_RET(clEnqueueWriteBuffer(_runtime._command_queue, _buffer, CL_TRUE, 0, size(), image.data, 0, NULL, NULL));
 }

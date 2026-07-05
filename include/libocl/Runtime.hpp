@@ -22,7 +22,7 @@ namespace ocl
     /**
      * @class Runtime
      * @brief Represents a "runnable" context of OpenCL. Runtime is bound to a Device and is required to perform
-     * tasks on the Device (managing memory and executing kernels). In simple words, this class wraps an OpenCL command queue.
+     * tasks on the Device (managing memory and executing kernels). This class wraps an OpenCL command queue.
      */
     class Runtime final
     {

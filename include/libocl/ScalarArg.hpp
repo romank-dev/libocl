@@ -29,7 +29,7 @@ namespace ocl
     {
         public:
 	        /**
-             * @brief Constructor. Creates a RemoteValue argument with the specified value.
+             * @brief Constructor. Creates a ScalarArg argument with the specified value.
              * @tparam T The type of the scalar value (e.g., int, float, etc.).
              * @param value The scalar value to be passed to the kernel.
              */
@@ -39,8 +39,8 @@ namespace ocl
             }
 
             /**
-             * @brief Get the size of the RemoteValue argument in bytes. This is the size of the underlying type T.
-             * @return The size of the RemoteValue argument in bytes.
+             * @brief Get the size of the ScalarArg argument in bytes. This is the size of the underlying type T.
+             * @return The size of the ScalarArg argument in bytes.
              */
             virtual uint32_t size() const override
             {
@@ -48,8 +48,8 @@ namespace ocl
             }
 
             /**
-             * @brief Get the value of the RemoteValue argument.
-             * @return The scalar value stored in the RemoteValue argument.
+             * @brief Get the value of the ScalarArg argument.
+             * @return The scalar value stored in the ScalarArg argument.
              */
             T value() const
             {

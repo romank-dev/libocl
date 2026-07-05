@@ -29,7 +29,7 @@ namespace ocl
 
     /**
      * @class Texture2D
-     * @brief Represents a 2D texture in OpenCL. It is a more sophisticated memory type than RemoteBuffer, as it uses optimized texture memory.
+     * @brief Represents a 2D texture in OpenCL. It uses OpenCL image objects to store and manipulate 2D image data on the GPU.
      * When creating a Texture2D, specific image details such as width, height, format, and access type are provided.
      * Within an OpenCL kernel, a Texture2D is not accessed as a global pointer to memory but rather as a sampler object,
      * and you must use image-specific functions to work with textures.
@@ -151,8 +151,6 @@ namespace ocl
             static bool is_valid_coords(const Texture2D& texture, uint32_t x, uint32_t y);
 
     };
-
-    typedef std::shared_ptr<Texture2D> RemoteTexture2DPtr;
 }
 
 

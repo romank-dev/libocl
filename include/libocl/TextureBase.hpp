@@ -23,13 +23,6 @@ limitations under the License.
 
 namespace ocl
 {
-	/**
-	 * A more sophisticated memory than RemoteBuffer since it uses the optimized texture memory.
-	 * Specific image details are given when creating a texture. Within a kernel it is not a global
-	 * pointer to memory but a sampler object and you must use image-specific functions to work with textures.
-	 * NOTE: OpenCV support is very minimal and straight-forward (1,2,4 channels only are supported)
-	 */
-
     /**
      * @class TextureBase
      * @brief Base class for texture objects in OpenCL. This class provides common functionality for different types of textures (e.g., Texture2D, Texture2DArray).

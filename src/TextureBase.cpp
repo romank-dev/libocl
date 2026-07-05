@@ -78,7 +78,7 @@ ImageFormat TextureBase::format_from_cv_mat(const Mat& mat)
         case 1:
             return ImageFormat::Red;
         default:
-            throw ::Exception("RemoteTexture2D::format_from_cv_mat: Unsupported image format!");
+            throw ::Exception("Texture2DBase::format_from_cv_mat: Unsupported image format!");
     }
     return ImageFormat::ARGB;
 }
@@ -115,8 +115,8 @@ cl_image_format TextureBase::create_format(ImageFormat format, AccessType type)
         {AccessType::Half, CL_HALF_FLOAT},
     };
 
-    CHECK_THROW(image_types.find(format) != image_types.end(), "RemoteTexture2D::create_format: Unsupported format!");
-    CHECK_THROW(data_types.find(type) != data_types.end(), "RemoteTexture2D::create_format: Unsupported data type!");
+    CHECK_THROW(image_types.find(format) != image_types.end(), "Texture2DBase::create_format: Unsupported format!");
+    CHECK_THROW(data_types.find(type) != data_types.end(), "Texture2DBase::create_format: Unsupported data type!");
 
     cl_image_format fmt =
     {

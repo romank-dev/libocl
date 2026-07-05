@@ -25,7 +25,7 @@ namespace ocl
 {
     /**
      * @class Texture2DArray
-     * @brief Represents a 2D texture array in OpenCL. It is a more sophisticated memory type than RemoteBuffer, as it uses optimized texture memory.
+     * @brief Represents a 2D texture array in OpenCL. Uses OpenCL image objects to provide optimized texture memory access.
      * When creating a Texture2DArray, specific image details such as width, height, depth, format, and access type are provided.
      * Within an OpenCL kernel, a Texture2DArray is not accessed as a global pointer to memory but rather as a sampler object,
      * and you must use image-specific functions to work with texture arrays.
@@ -119,8 +119,6 @@ namespace ocl
             void write_mat(uint depth, const cv::Mat& image);
 
     };
-
-    typedef std::shared_ptr<Texture2DArray> RemoteTexture2DArrayPtr;
 }
 
 

@@ -120,7 +120,7 @@ int Texture2D::get_cv_type() const
             type = CV_8UC2;
         else if(_image_format == ImageFormat::Red || _image_format == ImageFormat::Alpha)
             type = CV_8UC1;
-        else throw ::Exception("RemoteTexture2D::retrieve_mat(): Unsupported format for OpenCV!");
+        else throw ::Exception("Texture2D::retrieve_mat(): Unsupported format for OpenCV!");
     }
     else if(_data_type <= AccessType::Uint16N)
     {
@@ -130,7 +130,7 @@ int Texture2D::get_cv_type() const
             type = CV_16UC2;
         else if(_image_format == ImageFormat::Red || _image_format == ImageFormat::Alpha)
             type = CV_16UC1;
-        else throw ::Exception("RemoteTexture2D::retrieve_mat(): Unsupported format for OpenCV!");
+        else throw ::Exception("Texture2D::retrieve_mat(): Unsupported format for OpenCV!");
     }
     else if(_data_type == AccessType::Float)
     {
@@ -140,7 +140,7 @@ int Texture2D::get_cv_type() const
             type = CV_32FC2;
         else if(_image_format == ImageFormat::Red || _image_format == ImageFormat::Alpha)
             type = CV_32FC1;
-        else throw ::Exception("RemoteTexture2D::retrieve_mat(): Unsupported format for OpenCV!");
+        else throw ::Exception("Texture2D::retrieve_mat(): Unsupported format for OpenCV!");
     }
     else if(_data_type == AccessType::Int32 || _data_type == AccessType::Uint32)
     {
@@ -150,9 +150,9 @@ int Texture2D::get_cv_type() const
             type = CV_32SC2;
         else if(_image_format == ImageFormat::Red || _image_format == ImageFormat::Alpha)
             type = CV_32SC1;
-        else throw ::Exception("RemoteTexture2D::retrieve_mat(): Unsupported format for OpenCV!");
+        else throw ::Exception("Texture2D::retrieve_mat(): Unsupported format for OpenCV!");
     }
-    else throw ::Exception("RemoteTexture2D::retrieve_mat(): Unsupported format for OpenCV!");
+    else throw ::Exception("Texture2D::retrieve_mat(): Unsupported format for OpenCV!");
     return type;
 }
 
