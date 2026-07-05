@@ -20,10 +20,10 @@ limitations under the License.
 #include <libocl/Device.hpp>
 #include <libocl/Task.hpp>
 #include <libocl/Runtime.hpp>
-#include <libocl/RemoteValue.hpp>
 #include <libocl/LocalMemory.hpp>
 #include <libocl/Texture2D.hpp>
 #include <libocl/Texture2DArray.hpp>
 #include <libocl/TextureBase.hpp>
 #include <libocl/OpenCVMat.hpp>
 #include <libocl/GlobalMemory.hpp>
+#include <libocl/ScalarArg.hpp>

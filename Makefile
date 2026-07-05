@@ -37,7 +37,7 @@ CXXFLAGS = -fPIC -MMD $(INCLUDE_DIRS)
 LDFLAGS = $(LIBRARY_DIRS) $(LDFLAGS_OPENCV) -lOpenCL -lcommon -llogtrace
 
 .PHONY: all copy_test_files
-all: $(G_BIN)/liblibocl.so $(G_BIN)/$(PROJECT)/test_libocl copy_test_files 
+all: $(G_BIN)/libocl.so $(G_BIN)/$(PROJECT)/test_libocl copy_test_files 
 	@echo "\033[0;97m [DONE] $(PROJECT)"
 	
 copy_test_files : $(DST_TEST_FILES)

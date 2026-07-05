@@ -45,7 +45,7 @@ TEST(LibOcl, TestSanity)
 
     Texture2D tex(runtime, 200, 300, ImageFormat::RGBA, AccessType::Int8N);
 
-    RemoteValue<int> val(5);
+    ScalarArg<int> val(5);
 
     GlobalMemory buf(runtime, 1024000, AccessMode::ReadWrite);
 

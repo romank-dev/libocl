@@ -31,7 +31,7 @@ namespace ocl
     {
         friend class Argument;
         friend class LocalMemory;
-    	template<typename T> friend class RemoteValue;
+    	template<typename T> friend class ScalarArg;
         friend class GlobalMemory;
         friend class TextureBase;
         friend class Texture2D;

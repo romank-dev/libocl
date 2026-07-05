@@ -20,12 +20,12 @@ limitations under the License.
 namespace ocl
 {
     /**
-     * @class RemoteValue
+     * @class Scalar
      * @brief Represents a scalar value argument to be passed to an OpenCL kernel. It is used for passing simple data types (e.g., int, float, etc.) as kernel arguments.
      * The value is stored on the host and passed by value to the kernel when binding the argument.
      */
 	template<typename T>
-    class RemoteValue : public Argument
+    class ScalarArg : public Argument
     {
         public:
 	        /**
@@ -33,7 +33,7 @@ namespace ocl
              * @tparam T The type of the scalar value (e.g., int, float, etc.).
              * @param value The scalar value to be passed to the kernel.
              */
-            explicit RemoteValue<T>(const T& value)
+            explicit ScalarArg<T>(const T& value)
             {
                 _value = value;
             }
@@ -59,7 +59,7 @@ namespace ocl
             /**
              * Copy constructor
              */
-            RemoteValue<T>(const RemoteValue<T>& other)
+            ScalarArg<T>(const ScalarArg<T>& other)
             {
                 _value = other._value;
             }
@@ -67,7 +67,7 @@ namespace ocl
             /**
              * Copy assignment operator
              */
-            RemoteValue<T>& operator=(const RemoteValue<T>& other)
+            ScalarArg<T>& operator=(const ScalarArg<T>& other)
             {
                 if(this != &other)
                     _value = other._value;
