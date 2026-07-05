@@ -1,0 +1,5 @@
+r:git@github.com:romank-dev/libocl
+r:git@github.com:romank-dev/libcommon
+r:git@github.com:romank-dev/liblogtrace
+d:libcommon:liblogtrace
+d:libocl:libcommon liblogtrace
