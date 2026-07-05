@@ -3,7 +3,7 @@ OpenCL C++ wrapper library
 ## Building
 * **libocl** is built using the [workspace](https://github.com/romank-dev/workspace) build system. 
 ** For building with a different system, see [this link](https://github.com/romank-dev/workspace?tab=readme-ov-file#deep-dive--building-projects-without-workspace).
-* The manifest [URL](https://github.com/romank-dev/libcommon/blob/main/manifest.txt) may be used by the Workspace **init.sh** script to pull this project and it's dependencies.
+* The manifest [URL](https://github.com/romank-dev/libocl/blob/main/manifest.txt) may be used by the Workspace **init.sh** script to pull this project and it's dependencies.
 
 ## Overview
 **libocl** contains classes that wrap OpenCL's APIs and tools to perform computations on GPUs (and other accelerators).
